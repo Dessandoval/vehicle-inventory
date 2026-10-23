@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class VehiclesApp {
@@ -35,8 +36,8 @@ public class VehiclesApp {
 
         switch (command) {
             case 1 -> listAllVehicles(vehicles);
-//            case 2 -> findMakeModel(vehicles, scanner);
-//            case 3 -> findPriceRange(vehicles, scanner);
+            case 2 -> findMakeModel(vehicles, scanner);
+            case 3 -> findPriceRange(vehicles, scanner);
 //            case 4 -> findColor(vehicles, scanner);
             case 5 -> System.out.println("Goodbye");
             default -> System.out.println("Enter your command: ");
@@ -49,6 +50,31 @@ public class VehiclesApp {
             if (currentVehicle != null) {
                 System.out.println(currentVehicle);
 
+            }
+        }
+    }
+    public static void findMakeModel(Vehicle[] vehicles, Scanner scanner){
+        System.out.println("Enter Make or Model: ");
+        String makeModel = scanner.nextLine();
+
+        for (Vehicle currentVehicle : vehicles){
+            if (currentVehicle != null && currentVehicle.getMakeModel().equalsIgnoreCase(makeModel)){
+                System.out.println(currentVehicle);
+            }
+
+        }
+    }
+    public static void findPriceRange(Vehicle[] vehicles, Scanner scanner){
+        System.out.print("Enter the minimum price range: ");
+        double minimumRange = scanner.nextDouble();
+        scanner.nextLine();
+
+        System.out.print("Enter the maximum price range: ");
+        double maximumRange = scanner.nextDouble();
+
+        for(Vehicle vehicle : vehicles){
+            if(vehicle != null && vehicle.getPrice() >= minimumRange && vehicle.getPrice() <= maximumRange) {
+                    System.out.println(vehicle);
             }
         }
     }
