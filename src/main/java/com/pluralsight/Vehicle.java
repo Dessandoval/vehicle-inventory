@@ -58,12 +58,14 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle{" +
-                "vehicleId: " + vehicleId +
-                "makeModel: " + makeModel + '\'' +
-                "color: " + color + '\'' +
-                "odometerReading: " + odometerReading +
-                "price=" + price +
-                '}';
+        return "+--------------------------------+\n" +
+                "|         VEHICLE CARD           |\n" +
+                "+--------------------------------+\n" +
+                "| ID:       " + vehicleId + "\n" +
+                "| Model:    " + makeModel + "\n" +
+                "| Color:    " + color + "\n" +
+                "| Odometer: " + odometerReading + " mi\n" +
+                "| Price:    $" + price + "\n" +
+                "+--------------------------------+";
     }
 }
