@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
 
@@ -18,7 +20,29 @@ public class App {
             if (currentVehicle != null) {
                 System.out.println(currentVehicle);
 
+                Scanner scanner = new Scanner(System.in);
+
+                int command = 0;
+                System.out.println("What do you want to do?");
+                System.out.println(" 1 - List all vehicles");
+                System.out.println(" 2 - Search by make/model");
+                System.out.println(" 3 - Search by price range");
+                System.out.println(" 4 - Search by color");
+                System.out.println(" 5 - Quit");
+                System.out.println("Enter your command: ");
+                command = scanner.nextInt();
+                scanner.nextLine();
+
+                switch (command){
+                    case 1 -> listAllVechicles(vehicles);
+                    case 2 -> findMakeModel(vehicles, scanner);
+                    case 3 -> findPriceRange(vehicles, scanner);
+                    case 4 -> findColor(vehicles, scanner);
+                    case 5 -> System.out.println("Goodbye");
+                    default -> System.out.println("Enter your command: ");
+                }
             }
+
         }
     }
 }
